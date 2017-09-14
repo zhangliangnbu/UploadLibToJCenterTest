@@ -40,7 +40,7 @@ dependencies {
 
 def siteUrl = 'https://github.com/zhangliangnbu/android-common-utils'      // 项目的主页。可以没有
 def gitUrl = 'https://github.com/zhangliangnbu/android-common-utils/issues'   // Git仓库的url。可以没有
-group = "com.liang.liangutilslibrary" // Maven Group ID for the artifact，一般填你唯一的包名。引用时需要。
+group = "com.liang.liangutilslibrary" // Maven Group ID for the artifact，一般填你唯一的包名。其他项目添加此依赖时需要。
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
@@ -95,8 +95,8 @@ Properties properties = new Properties()
 // 加载本地配置
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+    user = properties.getProperty("bintray.user") // local.properties里设置
+    key = properties.getProperty("bintray.apikey") // local.properties里设置
     configurations = ['archives']
     pkg {
         repo = "LiangAndroidUtils"  // 仓库名
@@ -109,8 +109,3 @@ bintray {
 }
 
 // 使用 ./gradlew bintrayUpload
-
-//作者：IT_xiao小巫
-//链接：http://www.jianshu.com/p/b8f3c8fae5f6
-//來源：简书
-//著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
